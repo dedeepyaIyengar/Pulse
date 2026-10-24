@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+:root{--bg:#070914;--panel:rgba(22,26,52,.62);--line:rgba(148,163,255,.16);--text:#e6e9ff;--muted:#9aa1c7;
+--violet:#8b5cf6;--indigo:#6366f1;--cyan:#22d3ee;--high:#fb7185;--med:#fbbf24;--low:#60a5fa;--ok:#34d399}
+@property --p{syntax:'<number>';inherits:false;initial-value:0}
+.stApp{background:radial-gradient(900px 520px at 10% -8%,rgba(99,102,241,.30),transparent 60%),
+radial-gradient(760px 460px at 96% 4%,rgba(34,211,238,.14),transparent 60%),var(--bg);
+color:var(--text);font-family:'Manrope',system-ui,sans-serif}
+header[data-testid="stHeader"]{background:transparent}
+#MainMenu,footer{visibility:hidden}
+.block-container{max-width:1180px;padding-top:2.2rem;padding-bottom:3rem}
+h1,h2,h3,h4,p,label,span,div{font-family:'Manrope',system-ui,sans-serif}
+.mono,textarea,code{font-family:'DM Mono',ui-monospace,Consolas,monospace!important}
+
+/* Hero */
+.hero{padding:2.2rem 0 1.4rem;animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0 0 .6rem;
+background:linear-gradient(100deg,#fff 20%,#a5b4fc 55%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .tag-line{font-size:1.2rem;font-weight:600;color:#c7ccf0;margin:0 0 .5rem}
+.hero .desc{max-width:62ch;color:var(--muted);line-height:1.65;margin:0 0 1.1rem}
+.badges{display:flex;flex-wrap:wrap;gap:.5rem}
+.badge{font:500 .78rem 'DM Mono',monospace;padding:.3rem .7rem;border-radius:999px;border:1px solid var(--line);
+background:rgba(99,102,241,.1);color:#c7d2fe}
+.badge:nth-child(even){background:rgba(34,211,238,.08);color:#a5f3fc}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Section headings */
+.sec{margin:2.2rem 0 .9rem}
+.sec h2{font-size:1.3rem;font-weight:700;margin:0;letter-spacing:-.01em}
+.sec p{color:var(--muted);margin:.25rem 0 0;font-size:.92rem}
+
+/* Editor */
+.stTextArea textarea{background:rgba(8,10,24,.85)!important;color:#dbe1ff!important;border:1px solid var(--line)!important;
+border-radius:14px!important;font-size:.88rem!important;line-height:1.55!important;tab-size:4}
+.stTextArea textarea:focus{border-color:var(--cyan)!important;box-shadow:0 0 0 3px rgba(34,211,238,.18)!important}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.2rem 0 .3rem}
+.chip{font:500 .76rem 'DM Mono',monospace;color:var(--muted);padding:.22rem .6rem;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.stale{color:var(--med);font-size:.82rem;margin:.2rem 0}
+
+/* Buttons */
+.stButton>button,.stDownloadButton>button{border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);
+color:var(--text);font-weight:600;padding:.55rem 1rem;transition:transform .15s ease,border-color .15s ease,background .15s ease}
+.stButton>button:hover,.stDownloadButton>button:hover{transform:translateY(-1px);border-color:var(--cyan);color:#fff}
+.stButton>button:focus-visible,.stDownloadButton>button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+button[kind="primary"],button[data-testid="stBaseButton-primary"],.stDownloadButton>button{
+background:linear-gradient(120deg,var(--violet),var(--indigo))!important;border-color:transparent!important;color:#fff!important}
+
+/* Cards */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:1.25rem;backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+.card.empty{text-align:center;color:var(--muted);padding:2.2rem 1.2rem}
+.card.empty b{display:block;color:var(--text);font-size:1.05rem;margin-bottom:.3rem}
+.score-card{display:flex;gap:1.3rem;align-items:center;margin-bottom:.9rem}
+.score-card h3{margin:0 0 .25rem;font-size:1.35rem}
+.score-card p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
+.ring{--rc:var(--cyan);--p:var(--target);flex:none;width:128px;height:128px;border-radius:50%;display:grid;place-items:center;
+background:conic-gradient(var(--rc) calc(var(--p)*1%),rgba(255,255,255,.08) 0);animation:fill 1.4s cubic-bezier(.2,.8,.2,1) both}
+.ring.mid{--rc:var(--med)}.ring.bad{--rc:var(--high)}
+.ring-in{width:100px;height:100px;border-radius:50%;background:#0b0e22;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-in b{font-size:2.1rem;font-weight:800;line-height:1}.ring-in small{color:var(--muted);font:500 .72rem 'DM Mono',monospace}
+@keyframes fill{from{--p:0}to{--p:var(--target)}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.metric{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:.85rem .95rem;transition:transform .15s ease,border-color .15s ease}
+.metric:hover{transform:translateY(-2px);border-color:rgba(34,211,238,.45)}
+.m-val{display:block;font:500 1.6rem 'DM Mono',monospace;color:#fff}.m-label{color:var(--muted);font-size:.8rem}
+.metric.hot .m-val{color:var(--high)}
+
+/* Findings */
+.finding{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:14px;padding:1rem 1.15rem;margin-bottom:.75rem;
+transition:transform .15s ease}
+.finding:hover{transform:translateX(3px)}
+.finding.sev-high{--c:var(--high)}.finding.sev-medium{--c:var(--med)}.finding.sev-low{--c:var(--low)}
+.finding-head{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin-bottom:.5rem}
+.sev-pill{font-weight:700;font-size:.78rem;padding:.2rem .6rem;border-radius:999px;border:1px solid currentColor}
+.sev-pill.sev-high{color:var(--high)}.sev-pill.sev-medium{color:var(--med)}.sev-pill.sev-low{color:var(--low)}
+.tag{font-size:.76rem;color:var(--muted);padding:.2rem .55rem;border-radius:8px;background:rgba(255,255,255,.05)}
+.finding h4{margin:.1rem 0 .3rem;font-size:1.02rem}.finding p{margin:.2rem 0;color:#c3c9ea;line-height:1.55;font-size:.92rem}
+.finding .fix{color:#a5f3fc}
+.stRadio [role="radiogroup"]{gap:.4rem}
+
+/* Footer */
+.foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;line-height:1.6}
+.foot b{color:var(--text)}
+
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.score-card{flex-direction:column;align-items:flex-start}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

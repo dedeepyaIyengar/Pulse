@@ -1,0 +1,11 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/secrets.toml
+.vscode/
+.idea/
+*.log
+pulse-report*.json
+.DS_Store
